@@ -1,0 +1,33 @@
+---
+import { getCollection, getEntryBySlug } from "astro:content";
+
+export async function getStaticPaths() {
+  const items = await getCollection("works");
+  return items.map((i) => ({ params: { slug: i.slug } }));
+}
+
+const entry = await getEntryBySlug("works", Astro.params.slug);
+if (!entry) throw new Error("Not found");
+
+const { Content } = await entry.render(); // renderuje body (Description)
+const { title, subtitle, videos, buttonLink, audio } = entry.data;
+---
+
+<h1>{title}</h1>
+<p>{subtitle}</p>
+
+<article>
+  <Content />
+</article>
+
+{videos?.map((v) => (
+  <section>
+    {v.embedUrl ? <iframe src={v.embedUrl} loading="lazy" /> : null}
+    {v.videoFile ? <video controls src={v.videoFile} /> : null}
+  </section>
+))}
+
+{buttonLink ? <p><a href={buttonLink}>Open</a></p> : null}
+
+{audio?.embedUrl ? <iframe src={audio.embedUrl} loading="lazy" /> : null}
+{audio?.audioFile ? <audio controls src={audio.audioFile} /> : null}

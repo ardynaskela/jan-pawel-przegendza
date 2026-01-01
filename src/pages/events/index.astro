@@ -1,0 +1,8 @@
+---
+import { getCollection } from "astro:content";
+const items = await getCollection("events");
+---
+<h1>Events</h1>
+<ul>
+  {items.map((i) => <li><a href={`/events/${i.slug}`}>{i.data.date}</a></li>)}
+</ul>

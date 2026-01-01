@@ -1,0 +1,21 @@
+---
+import { getCollection, getEntryBySlug } from "astro:content";
+import { marked } from "marked";
+
+export async function getStaticPaths() {
+  const items = await getCollection("events");
+  return items.map((i) => ({ params: { slug: i.slug } }));
+}
+
+const entry = await getEntryBySlug("events", Astro.params.slug);
+if (!entry) throw new Error("Not found");
+
+const { title, date, description } = entry.data;
+
+const titleHtml = marked.parse(title);
+const descHtml = description ? marked.parse(description) : "";
+---
+
+<p>{date}</p>
+<h1 set:html={titleHtml} />
+{description ? <div set:html={descHtml} /> : null}

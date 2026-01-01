@@ -1,0 +1,16 @@
+---
+import { getCollection, getEntryBySlug } from "astro:content";
+
+export async function getStaticPaths() {
+  const items = await getCollection("photos");
+  return items.map((i) => ({ params: { slug: i.slug } }));
+}
+
+const entry = await getEntryBySlug("photos", Astro.params.slug);
+if (!entry) throw new Error("Not found");
+
+const { title, photo, alt } = entry.data;
+---
+
+<h1>{title}</h1>
+<img src={photo} alt={alt} loading="lazy" />
