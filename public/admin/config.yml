@@ -10,11 +10,75 @@ media_folder: "public/uploads"
 public_folder: "/uploads"
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "src/content/blog"
+  - name: "works"
+    label: "Works"
+    folder: "src/content/works"
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Subtitle", name: "subtitle", widget: "string" }
+      - { label: "Description", name: "description", widget: "markdown" }
+
+      - label: "Embedded videos"
+        name: "videos"
+        widget: "list"
+        required: false
+        summary: "{{fields.label}}"
+        fields:
+          - { label: "Label", name: "label", widget: "string", required: false }
+          - { label: "Embed URL (YouTube/Vimeo/etc.)", name: "embedUrl", widget: "string", required: false }
+          - { label: "Self-hosted video file", name: "videoFile", widget: "file", required: false }
+
+      - { label: "Button link", name: "buttonLink", widget: "string", required: false }
+
+      - label: "Audio"
+        name: "audio"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Embed URL (Spotify/SoundCloud/etc.)", name: "embedUrl", widget: "string", required: false }
+          - { label: "Self-hosted audio file", name: "audioFile", widget: "file", required: false }
+
+  - name: "events"
+    label: "Events"
+    folder: "src/content/events"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "markdown" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "markdown", required: false }
+
+  - name: "news"
+    label: "News"
+    folder: "src/content/news"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "markdown" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "markdown", required: false }
+
+  # 1 wpis = 1 zdjęcie
+  - name: "photos"
+    label: "Photos"
+    folder: "src/content/photos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Photo", name: "photo", widget: "image" }
+      - { label: "Alt text", name: "alt", widget: "string" }
+
+  # 1 wpis = 1 element media (URL lub plik)
+  - name: "media"
+    label: "Media"
+    folder: "src/content/media"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "markdown" }
+      - { label: "File URL", name: "fileUrl", widget: "string", required: false }
+      - { label: "Self-hosted file", name: "file", widget: "file", required: false }
+      - { label: "Alt text", name: "alt", widget: "string" }
