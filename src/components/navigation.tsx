@@ -42,6 +42,7 @@ export default function Navigation({ children }: { children: React.ReactNode; })
                              type="button"
                              onClick={() => setIsOpen((prev) => !prev)}
                             className={clsx(
+                                  "fixed right-4 bottom-4 sm:right-8 sm:bottom-8 z-50",
                                  "w-fit text-base sm:text-2xl px-5 py-2 rounded-full transition-all duration-300 ease-in-out whitespace-nowrap",
                                   "text-zinc-900 bg-zinc-100 hover:outline-2 outline-offset-2 outline-zinc-100",
                                    )}
