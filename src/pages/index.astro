@@ -10,16 +10,20 @@ import WarpBackground from "../components/warp-background";
 	<main>
 		<div class="group relative w-full min-h-dvh flex items-center justify-center">
 			<div class="absolute w-full h-dvh -z-10">
-				<WarpBackground
-					color1="#09090b"
-					color2="#27272a"
-					color3="#52525b"
-					speed={0.6}
-					swirl={0.5}
-					swirlIterations={10}
-					shapeScale={0.3}
-					client:load
-				/>
+				<GrainGradient
+				width={1280}
+				height={720}
+				colors={["#ffcca8", "#08062d", "#000000"]}
+				colorBack="#020209"
+				softness={1}
+				intensity={0.69}
+				noise={0.5}
+				shape="ripple"
+				speed={1.48}
+				scale={2.36}
+				offsetX={-1}
+				offsetY={-0.82}
+/>
 			</div>
 
 <div class="p-4 sm:p-8 absolute w-full h-dvh flex flex-col justify-between z-10">
