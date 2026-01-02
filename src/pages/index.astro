@@ -37,11 +37,13 @@ import WarpBackground from "../components/warp-background";
     <Link href="/media" variant="secondary">Media</Link>
     <Link href="/contact" variant="secondary">Contact</Link>
   </div>
-  <div class="md:hidden p-4 sm:p-8 absolute w-full h-dvh flex flex-col justify-between z-10">
-	<Link href="/works">Works</Link>
+<div class="md:hidden">
+  <div class="fixed left-4 bottom-6 sm:left-8 sm:bottom-8 z-50 flex items-center gap-4">
+    <Link href="/works">Works</Link>
     <Link href="/about" variant="secondary">About</Link>
-    <Navigation client:load />
   </div>
+  <Navigation client:load />
+</div>
 </div>
 </div>
 	</main>
