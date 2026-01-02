@@ -30,6 +30,8 @@ export default function Navigation({ children }: { children: React.ReactNode; })
                             className="lg:hidden absolute z-50 w-full h-full flex flex-col gap-4 top-0 bg-zinc-900/20 backdrop-blur-md">
 
                             <div className="fixed top-20 sm:top-28 left-4 sm:left-8 flex flex-col items-start justify-start gap-6">
+                                <MobileLink href="/works"> Works </MobileLink>
+                                <MobileLink href="/about"> About </MobileLink>
                                 <MobileLink href="/events"> Events </MobileLink>
                                 <MobileLink href="/news"> News </MobileLink>
                                 <MobileLink href="/photos"> Photos </MobileLink>
