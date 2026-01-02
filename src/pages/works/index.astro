@@ -1,20 +1,8 @@
 ---
-import RootLayout from "../../layouts/RootLayout.astro";
 import { getCollection } from "astro:content";
-const works = await getCollection("works");
+const items = await getCollection("works");
 ---
-<RootLayout title="Works">
-  <main class="p-6 max-w-screen-lg mx-auto">
-    <h1 class="text-3xl font-bold mb-6">Works</h1>
-    <ul class="space-y-6">
-      {works.map((w) => (
-        <li>
-          <a href={`/works/${w.slug}/`} class="block">
-            <div class="text-xl font-semibold">{w.data.title}</div>
-            <div class="text-zinc-400">{w.data.subtitle}</div>
-          </a>
-        </li>
-      ))}
-    </ul>
-  </main>
-</RootLayout>
+<h1>Works</h1>
+<ul>
+  {items.map((i) => <li><a href={`/works/${i.slug}`}>{i.data.title}</a></li>)}
+</ul>
