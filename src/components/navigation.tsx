@@ -66,8 +66,6 @@ export default function Navigation({ children }: { children: React.ReactNode; })
                                    >
                                     {isOpen ? "Close" : "Menu"}
                                     </motion.button>
-                            </div>
-                        </motion.dialog>
         </div>
     );
 }
