@@ -27,17 +27,20 @@ import WarpBackground from "../components/warp-background";
     <H1 size="large">Jan Paweł Przegendza</H1>
   </div>
 
-  <div class="w-full flex justify-end">
-    <div class="flex items-center gap-4">
-      <Link href="/works" variant="secondary">Works</Link>
-      <Link href="/about" variant="secondary">About</Link>
-      <Link href="/events" variant="secondary">Events</Link>
-      <Link href="/news" variant="secondary">News</Link>
-      <Link href="/photos" variant="secondary">Photos</Link>
-      <Link href="/media" variant="secondary">Media</Link>
-      <Link href="/contact" variant="secondary">Contact</Link>
-    </div>
+<div class="w-full flex justify-end">
+  <div class="hidden md:flex items-center gap-4">
+    <Link href="/works" variant="secondary">Works</Link>
+    <Link href="/about" variant="secondary">About</Link>
+    <Link href="/events" variant="secondary">Events</Link>
+    <Link href="/news" variant="secondary">News</Link>
+    <Link href="/photos" variant="secondary">Photos</Link>
+    <Link href="/media" variant="secondary">Media</Link>
+    <Link href="/contact" variant="secondary">Contact</Link>
   </div>
+  <div class="md:hidden">
+    <Navigation client:load />
+  </div>
+</div>
 </div>
 	</main>
 </RootLayout>
