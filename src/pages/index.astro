@@ -34,7 +34,7 @@ import GrainGradientBackground from "../components/graingradient-background";
   </div>
 
 <div class="w-full flex justify-end">
-  <Navigation client:load>
+  <div class="hidden md:flex items-center gap-4">
     <Link href="/works" variant="secondary">Works</Link>
     <Link href="/about" variant="secondary">About</Link>
     <Link href="/events" variant="secondary">Events</Link>
@@ -42,8 +42,7 @@ import GrainGradientBackground from "../components/graingradient-background";
     <Link href="/photos" variant="secondary">Photos</Link>
     <Link href="/media" variant="secondary">Media</Link>
     <Link href="/contact" variant="secondary">Contact</Link>
-  </Navigation>
-</div>
+  </div>
 <div class="md:hidden">
   <div class="fixed left-4 bottom-6 sm:left-8 sm:bottom-8 z-50 flex items-center gap-4">
     <Link href="/works">Works</Link>
