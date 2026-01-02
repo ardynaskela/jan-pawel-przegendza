@@ -9,22 +9,24 @@ import GrainGradientBackground from "../components/graingradient-background";
 <RootLayout>
 	<main>
 		<div class="group relative w-full min-h-dvh flex items-center justify-center">
-			<div class="absolute w-full h-dvh -z-10">
-				<GrainGradientBackground
-				width={1280}
-				height={720}
-				colors={["#ffcca8", "#08062d", "#000000"]}
-				colorBack="#020209"
-				softness={1}
-				intensity={0.69}
-				noise={0.5}
-				shape="ripple"
-				speed={1.48}
-				scale={2.36}
-				offsetX={-1}
-				offsetY={-0.82}
-/>
-			</div>
+<div class="absolute inset-0 -z-10">
+  <GrainGradientBackground
+    client:only="react"
+    width={1280}
+    height={720}
+    colors={["#ffcca8", "#08062d", "#000000"]}
+    colorBack="#020209"
+    softness={1}
+    intensity={0.69}
+    noise={0.5}
+    shape="ripple"
+    speed={1.48}
+    scale={2.36}
+    offsetX={-1}
+    offsetY={-0.82}
+    style={{ width: "100%", height: "100%" }}
+  />
+</div>
 
 <div class="p-4 sm:p-8 absolute w-full h-dvh flex flex-col justify-between z-10">
   <div>
