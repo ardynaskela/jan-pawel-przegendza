@@ -27,7 +27,7 @@ export default function Navigation({ children }: { children: React.ReactNode; })
                             animate={{ filter: "blur(0px)", opacity: 1 }}
                             exit={{ filter: "blur(20px)", opacity: 0 }}
                             onClick={() => setIsOpen(false)}
-                            className="lg:hidden absolute z-50 w-full h-full flex flex-col gap-4 top-0 bg-zinc-900/20 backdrop-blur-md">
+                            className="lg:hidden absolute z-50 w-full h-full flex flex-col gap-4 top-0 bg-gray-950/20 backdrop-blur-md">
 
                             <div className="fixed top-20 sm:top-28 left-4 sm:left-8 flex flex-col items-start justify-start gap-6">
                                 <MobileLink href="/works"> Works </MobileLink>
@@ -53,7 +53,7 @@ export default function Navigation({ children }: { children: React.ReactNode; })
     "fixed right-4 bottom-6 sm:right-8 sm:bottom-8 z-50",
     "w-12 h-12 sm:w-14 sm:h-14 rounded-full",
     "grid place-items-center",
-    "text-zinc-900 bg-zinc-100 hover:outline-2 outline-offset-2 outline-zinc-100",
+    "text-gray-950 bg-gray-100 hover:outline-2 outline-offset-2 outline-gray-100",
     "transition-all duration-300 ease-in-out"
   )}
 >
@@ -120,7 +120,7 @@ function MobileLink({ href, className, children }: MobileLinkProps) {
       className={clsx(
         "w-fit font-bold text-white tracking-tight leading-none",
         "text-5xl sm:text-6xl md:text-7xl",
-        "cursor-pointer hover:text-zinc-50/90 transition",
+        "cursor-pointer hover:text-gray-50/90 transition",
         className
       )}
     >
