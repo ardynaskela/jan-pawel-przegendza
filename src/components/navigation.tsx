@@ -8,55 +8,33 @@ export default function Navigation({ items }: { items: NavItem[] }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex items-center justify-center gap-12">
+    <div className="flex items-center justify-center">
       <AnimatePresence>
         {isOpen && (
-          <>
-            {/* Desktop (jeśli kiedyś będziesz chciał wyświetlać menu bez hamburgera na lg+) */}
-            <motion.div
-              initial={{ filter: "blur(20px)", opacity: 0 }}
-              transition={{ ease: "easeInOut", duration: 0.5 }}
-              animate={{ filter: "blur(0px)", opacity: 1 }}
-              exit={{ filter: "blur(20px)", opacity: 0 }}
-              className="hidden lg:flex gap-4"
+          <motion.dialog
+            open
+            initial={{ filter: "blur(20px)", opacity: 0 }}
+            transition={{ ease: "easeInOut", duration: 0.25 }}
+            animate={{ filter: "blur(0px)", opacity: 1 }}
+            exit={{ filter: "blur(20px)", opacity: 0 }}
+            onClick={() => setIsOpen(false)}
+            className="fixed inset-0 z-50 w-full h-full flex flex-col gap-4 bg-neutral-950/20 backdrop-blur-md"
+          >
+            <div
+              className="fixed top-20 sm:top-28 left-4 sm:left-8 flex flex-col items-start justify-start gap-6"
+              onClick={(e) => e.stopPropagation()}
             >
               {items.map((item) => (
-                <a
+                <MobileLink
                   key={item.href}
                   href={item.href}
-                  className="text-neutral-400 hover:text-neutral-100 transition"
+                  onClick={() => setIsOpen(false)}
                 >
                   {item.label}
-                </a>
+                </MobileLink>
               ))}
-            </motion.div>
-
-            {/* Mobile overlay */}
-            <motion.dialog
-              open
-              initial={{ filter: "blur(20px)", opacity: 0 }}
-              transition={{ ease: "easeInOut", duration: 0.25 }}
-              animate={{ filter: "blur(0px)", opacity: 1 }}
-              exit={{ filter: "blur(20px)", opacity: 0 }}
-              onClick={() => setIsOpen(false)}
-              className="lg:hidden fixed inset-0 z-50 w-full h-full flex flex-col gap-4 bg-neutral-950/20 backdrop-blur-md"
-            >
-              <div
-                className="fixed top-20 sm:top-28 left-4 sm:left-8 flex flex-col items-start justify-start gap-6"
-                onClick={(e) => e.stopPropagation()}
-              >
-                {items.map((item) => (
-                  <MobileLink
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.label}
-                  </MobileLink>
-                ))}
-              </div>
-            </motion.dialog>
-          </>
+            </div>
+          </motion.dialog>
         )}
       </AnimatePresence>
 
@@ -131,10 +109,22 @@ function MobileLink({ href, className, children, onClick }: MobileLinkProps) {
     <motion.a
       href={href}
       onClick={onClick}
-      initial={{ transform: "translateY(100px)", filter: "blur(20px)", opacity: 0 }}
+      initial={{
+        transform: "translateY(100px)",
+        filter: "blur(20px)",
+        opacity: 0,
+      }}
       transition={{ type: "spring", stiffness: 25, damping: 2, mass: 0.1 }}
-      animate={{ transform: "translateY(0px)", filter: "blur(0px)", opacity: 1 }}
-      exit={{ transform: "translateY(100px)", filter: "blur(20px)", opacity: 0 }}
+      animate={{
+        transform: "translateY(0px)",
+        filter: "blur(0px)",
+        opacity: 1,
+      }}
+      exit={{
+        transform: "translateY(100px)",
+        filter: "blur(20px)",
+        opacity: 0,
+      }}
       className={clsx(
         "w-fit font-bold text-white tracking-tight leading-none",
         "text-5xl sm:text-6xl md:text-7xl",

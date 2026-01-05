@@ -1,52 +1,51 @@
 ---
 import "../styles/global.css";
 import { Font } from "astro:assets";
-import { ClientRouter } from 'astro:transitions';
-import LoadingIndicator from "astro-loading-indicator/component"
+import { ClientRouter } from "astro:transitions";
+import LoadingIndicator from "astro-loading-indicator/component";
 import Footer from "../components/footer.astro";
 
 const { title, description } = Astro.props;
 
 const defaultTitle = "Jan Paweł Przegendza";
-const defaultDescription = "Composer, organist, improviser, and avid researcher of musical hearing abilities";
+const defaultDescription =
+  "Composer, organist, improviser, and avid researcher of musical hearing abilities";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title ?? defaultTitle}</title>
-		<meta name="description" content={description ?? defaultDescription} />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title ?? defaultTitle}</title>
+    <meta name="description" content={description ?? defaultDescription} />
 
-		<meta property="og:url" content="https://przegendza.pl/" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content={defaultTitle} />
-		<meta property="og:description" content={defaultDescription} />
-		<meta property="og:image" content="/social-image.jpg" />
+    <meta property="og:url" content="https://przegendza.pl/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={defaultTitle} />
+    <meta property="og:description" content={defaultDescription} />
+    <meta property="og:image" content="/social-image.jpg" />
 
-		<Font cssVariable="--font-geist" preload />
-		<ClientRouter />
-		<LoadingIndicator color="#f4f4f5" height="2px" />
+    <Font cssVariable="--font-geist" preload />
+    <ClientRouter />
+    <LoadingIndicator color="#f4f4f5" height="2px" />
+  </head>
 
-	</head>
-	<body class="font-sans min-h-screen bg-neutral-950">
-		<slot />
-	</body>
+  <body class="font-sans min-h-screen bg-neutral-950">
+    <main class="relative min-h-screen">
+      <slot />
+      <Footer />
+    </main>
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>
-
-		<main class="relative"  >
-			<slot />
-			<Footer />
-		</main>
