@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: ardynaskela/jan-przegendza
+  repo: ardynaskela/jan-pawel-przegendza
   branch: master
   site_domain: jan-przegendza.vercel.app
   base_url: https://jan-przegendza.vercel.app
