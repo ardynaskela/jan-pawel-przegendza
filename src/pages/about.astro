@@ -26,23 +26,21 @@ const imageAlt = entry.data.photoAlt ?? title;
     <section class="space-y-4 sm:space-y-12">
       <H1>{title}</H1>
 
-      <div class="prose prose-invert prose-lg max-w-none">
+      <div class="prose prose-invert prose-lg max-w-none leading-snug">
         <Content />
       </div>
     </section>
 
     <section class="space-y-2 text-base sm:text-lg">
-      <h2 class="text-neutral-400 underline underline-offset-4 decoration-neutral-400">
-        Awards
-      </h2>
+      <h2> Awards </h2>
 
       {awards.length > 0 ? (
-        <ul class="text-neutral-300 list-disc list-outside pl-5 space-y-1">
+        <ul class="text-neutral-200 pl-5 space-y-1">
           {awards.map((a: Award) => (
             <li>
               <span class="font-medium text-neutral-200">{a.title}</span>
-              {a.year && <span class="text-neutral-400"> ({a.year})</span>}
-              {a.description && <span class="text-neutral-400"> — {a.description}</span>}
+              {a.year && <span class="text-neutral-200"> ({a.year})</span>}
+              {a.description && <span class="text-neutral-200"> — {a.description}</span>}
             </li>
           ))}
         </ul>
