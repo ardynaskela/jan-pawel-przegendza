@@ -44,7 +44,7 @@ export default function Navigation({ items }: { items: NavItem[] }) {
         aria-expanded={isOpen}
         onClick={() => setIsOpen((prev) => !prev)}
         className={clsx(
-          "fixed right-4 bottom-6 sm:right-8 sm:bottom-8 z-50",
+          "fixed right-4 bottom-4 sm:right-8 sm:bottom-8 z-50",
           "w-12 h-12 sm:w-14 sm:h-14 rounded-full",
           "grid place-items-center",
           "text-neutral-950 bg-neutral-100 hover:outline-2 outline-offset-2 outline-neutral-100",
