@@ -23,13 +23,17 @@ const pathname = Astro.url.pathname;
     <Link href="/contact" variant="secondary">Contact</Link>
   </div>
 <div class="md:hidden">
-<Navigation client:load>
-  <Link href="/works" variant="secondary">Works</Link>
-  <Link href="/about" variant="secondary">About</Link>
-  <Link href="/events" variant="secondary">Events</Link>
-  <Link href="/news" variant="secondary">News</Link>
-  <Link href="/photos" variant="secondary">Photos</Link>
-  <Link href="/media" variant="secondary">Media</Link>
-  <Link href="/contact" variant="secondary">Contact</Link>
-</Navigation>
+<Navigation
+  client:load
+  items={[
+    { href: "/", label: "Home" },
+    { href: "/works", label: "Works" },
+    { href: "/about", label: "About" },
+    { href: "/events", label: "Events" },
+    { href: "/news", label: "News" },
+    { href: "/photos", label: "Photos" },
+    { href: "/media", label: "Media" },
+    { href: "/contact", label: "Contact" },
+  ]}
+/>
 </footer>
