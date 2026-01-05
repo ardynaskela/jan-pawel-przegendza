@@ -78,3 +78,28 @@ collections:
       - { label: "File URL (if not uploading a file)", name: "fileUrl", widget: "string", required: false }
       - { label: "Self-hosted file (if no URL)", name: "file", widget: "file", required: false }
       - { label: "Alt text", name: "alt", widget: "string" }
+
+  - name: "about"
+    label: "About"
+    files:
+      - file: "src/content/about/about.md"
+        name: "about"
+        label: "About page"
+        fields:
+          - { label: "Title", name: "title", widget: "string", required: false }
+
+          # ✅ nowość: zdjęcie
+          - { label: "Photo", name: "photo", widget: "image", required: false }
+          - { label: "Photo alt", name: "photoAlt", widget: "string", required: false }
+
+          - { label: "Bio text", name: "body", widget: "markdown" }
+
+          - label: "Awards"
+            name: "awards"
+            widget: "list"
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Year", name: "year", widget: "number", required: false, value_type: "int" }
+              - { label: "Description", name: "description", widget: "string", required: false }

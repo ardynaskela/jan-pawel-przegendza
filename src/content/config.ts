@@ -1,6 +1,4 @@
 import { defineCollection, z } from "astro:content";
-import { glob } from "astro/loaders";
-import { reference } from "astro:content";
 
 const works = defineCollection({
   type: "content",
@@ -62,4 +60,22 @@ const media = defineCollection({
   }),
 });
 
-export const collections = { works, events, news, photos, media };
+const about = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string().optional(),
+    photo: z.string().optional(),
+    photoAlt: z.string().optional(),
+    awards: z
+      .array(
+        z.object({
+          title: z.string(),
+          year: z.number().int().optional(),
+          description: z.string().optional(),
+        })
+      )
+      .optional(),
+  }),
+});
+
+export const collections = { works, events, news, photos, media, about };
