@@ -1,33 +1,35 @@
 ---
 import RootLayout from "./RootLayout.astro";
-import Footer from "../components/footer.astro";
 
-const { title, description } = Astro.props;
-
-const pathname = Astro.url.pathname;
+const {
+  imageSrc = "/about.jpg", // <- ustaw swoją ścieżkę jeśli inna
+  imageAlt = "Portrait",
+} = Astro.props;
 ---
 
-<RootLayout title={title} description={description}>
-	<div class="flex flex-col md:flex-row relative gap-4 w-full max-w-screen-xl">
-<nav class="relative w-full md:min-w-2xs xl:min-w-sm sm:min-h-screen sm:ml-4 sm:pb-4">
-  <!-- MOBILE: zdjęcie nad treścią -->
-  <div
-    class="md:hidden w-full h-64 rounded-3xl overflow-hidden bg-cover bg-center"
-    style="background-image: url('/uploads/jan-przegendza.jpg');"
-  ></div>
+<RootLayout>
+  <section class="px-4 sm:px-12 pt-4 sm:pt-8 pb-24">
+    <div class="min-h-dvh grid gap-10 lg:gap-12 lg:grid-cols-[minmax(0,520px)_1fr] items-start">
+      <!-- PHOTO -->
+      <div class="lg:sticky lg:top-8">
+        <div class="overflow-hidden rounded-b-3xl lg:rounded-3xl">
+          <img
+            src={imageSrc}
+            alt={imageAlt}
+            loading="eager"
+            class="
+              w-full object-cover
+              h-[520px] sm:h-[640px]
+              lg:h-[calc(100dvh-10rem)]
+            "
+          />
+        </div>
+      </div>
 
-  <!-- TABLET+DESKTOP: zostaje pasek po lewej -->
-<div
-  class="hidden md:block w-full h-full md:max-w-xs lg:max-w-md xl:max-w-lg fixed -z-10 sm:bottom-4 sm:rounded-b-full overflow-hidden bg-cover bg-center"
-  style="background-image: url('/uploads/jan-przegendza.jpg');"
-></div>
-</nav>
-
-		<main class="relative"  >
-			<slot />
-			<Footer />
-		</main>
-
-
-	</div>
+      <!-- CONTENT -->
+      <div class="min-w-0">
+        <slot />
+      </div>
+    </div>
+  </section>
 </RootLayout>

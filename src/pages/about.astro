@@ -3,30 +3,32 @@ import H1 from "../components/h1.astro";
 import InfoLayout from "../layouts/InfoLayout.astro";
 ---
 
-<InfoLayout>
-     <div class="p-4 sm:pt-8 sm:px-12 pb-20 min-h-dvh flex flex-col justify-between gap-32">
-          <div class="space-y-4 sm:space-y-12">
-               <H1> Jan Paweł Przegendza </H1>
+<InfoLayout imageSrc="/about.jpg" imageAlt="Jan Paweł Przegendza">
+  <div class="space-y-16">
+    <section class="space-y-4 sm:space-y-12">
+      <H1>Jan Paweł Przegendza</H1>
 
-               <p class="text-xl xl:text-2xl text-neutral-400 text-balance">
-                    Pitch relationships between sounds or post-tonal harmonic illumination function in his works only as a timbral parameter, which is one of many components in the creation of music. In his (un)conventional use of instrumentation, he focuses not on effect, but on sonority. Thus, the artistic stance he adopts allows him to expose the objective beauty resulting from the assumptions of absolute music, which, accompanied by a vivid, existing, and planned sound at a given moment, allows melodies, chords, and rhythms to resound.
-                    <br/>He was born in Zabrze in 1996. He studies composition in the class of Dr. Michał Moc at the Karol Lipiński Academy of Music in Wrocław. At the same academy, he graduated from the organ class of Dr. hab. Piotr Rojek prof. nadzw. He also studied with Prof. Julian Gembalski (organ and improvisation) at the Music Academy in Katowice and with Prof. Martin Haselböck (organ) at the Universität für Musik und darstellende Kunst in Vienna.
-                    <br/>He is also actively involved in ear training education. She cooperates with the Ear Training and Musical Imagination Workshop and the Department of Organ, Harpsichord, and Early Music at the AMKL in Wrocław.
-               </p>
-          </div>
+      <p class="text-xl xl:text-2xl text-neutral-400 text-balance">
+        Pitch relationships between sounds or post-tonal harmonic illumination function in his works only as a timbral parameter, which is one of many components in the creation of music. In his (un)conventional use of instrumentation, he focuses not on effect, but on sonority. Thus, the artistic stance he adopts allows him to expose the objective beauty resulting from the assumptions of absolute music, which, accompanied by a vivid, existing, and planned sound at a given moment, allows melodies, chords, and rhythms to resound.
+        <br />He was born in Zabrze in 1996. He studies composition in the class of Dr. Michał Moc at the Karol Lipiński Academy of Music in Wrocław. At the same academy, he graduated from the organ class of Dr. hab. Piotr Rojek prof. nadzw. He also studied with Prof. Julian Gembalski (organ and improvisation) at the Music Academy in Katowice and with Prof. Martin Haselböck (organ) at the Universität für Musik und darstellende Kunst in Vienna.
+        <br />He is also actively involved in ear training education. He cooperates with the Ear Training and Musical Imagination Workshop and the Department of Organ, Harpsichord, and Early Music at the AMKL in Wrocław.
+      </p>
+    </section>
 
-          <div class="space-y-2 text-base sm:text-lg">
-               <h2 class="px-4 text-neutral-400 underline underline-offset-4 decoration-neutral-400">Achievements</h2>
+    <section class="space-y-2 text-base sm:text-lg">
+      <h2 class="text-neutral-400 underline underline-offset-4 decoration-neutral-400">
+        Achievements
+      </h2>
 
-               <ul class="px-4 text-neutral-300 list-disc list-outside">
-                    <li>Alternating Current (AC) System</li>
-                    <li>Tesla Coil</li>
-                    <li>Induction Motor</li>
-                    <li>Wireless Transmission</li>
-                    <li>Radio and Remote Control</li>
-                    <li>Hydroelectric Power at Niagara Falls</li>
-                    <li>X-Ray Imaging</li>
-               </ul>
-          </div>
-     </div>
+      <ul class="text-neutral-300 list-disc list-outside pl-5">
+        <li>Alternating Current (AC) System</li>
+        <li>Tesla Coil</li>
+        <li>Induction Motor</li>
+        <li>Wireless Transmission</li>
+        <li>Radio and Remote Control</li>
+        <li>Hydroelectric Power at Niagara Falls</li>
+        <li>X-Ray Imaging</li>
+      </ul>
+    </section>
+  </div>
 </InfoLayout>
