@@ -3,6 +3,7 @@ import "../styles/global.css";
 import { Font } from "astro:assets";
 import { ClientRouter } from 'astro:transitions';
 import LoadingIndicator from "astro-loading-indicator/component"
+import Footer from "../components/footer.astro";
 
 const { title, description } = Astro.props;
 
@@ -44,3 +45,8 @@ const defaultDescription = "Composer, organist, improviser, and avid researcher 
 		height: 100%;
 	}
 </style>
+
+		<main class="relative"  >
+			<slot />
+			<Footer />
+		</main>

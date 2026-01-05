@@ -3,11 +3,12 @@ import Link from "../components/link.astro";
 import Navigation from "../components/navigation";
 
 const pathname = Astro.url.pathname;
-const isHome = pathname === "/";
+const isHome = pathname === "/" || pathname === "/index";
 ---
 
 <footer class="fixed inset-x-0 bottom-0 z-40 bg-neutral-950 px-4 sm:px-12 py-4">
   <div class="flex justify-end">
+    <!-- Desktop -->
     <div class="hidden md:flex items-center gap-4 flex-wrap justify-end">
       {!isHome && (
         <Link href="/" variant="icon" className="group">
@@ -37,11 +38,11 @@ const isHome = pathname === "/";
       <Link href="/contact" variant="secondary">Contact</Link>
     </div>
 
+    <!-- Mobile -->
     <div class="md:hidden">
       <Navigation
         client:load
         items={[
-          // usuwamy Home tylko na stronie głównej:
           ...(isHome ? [] : [{ href: "/", label: "Home" }]),
           { href: "/works", label: "Works" },
           { href: "/about", label: "About" },
@@ -52,6 +53,13 @@ const isHome = pathname === "/";
           { href: "/contact", label: "Contact" },
         ]}
       />
+
+      {isHome && (
+        <div class="fixed left-4 bottom-6 sm:left-8 sm:bottom-8 z-50 flex items-center gap-4">
+          <Link href="/works">Works</Link>
+          <Link href="/about" variant="secondary">About</Link>
+        </div>
+      )}
     </div>
   </div>
 </footer>
