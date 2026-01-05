@@ -1,11 +1,14 @@
 ---
 title: Jan Paweł Przegendza
-photo: "/uploads/jan-przegendza.jpg"
-photoAlt: "Jan Paweł Przegendza"
+photo: /uploads/jan-przegendza.jpg
+photoAlt: Jan Paweł Przegendza
 awards:
-  - title: "Add your first award"
+  - title: Add your first award
     year: 2024
     description: ""
+  - title: Award 2
+    year: 2025
+    description: optional description
 ---
 
 Pitch relationships between sounds or post-tonal harmonic illumination function in his works only as a timbral parameter, which is one of many components in the creation of music. In his (un)conventional use of instrumentation, he focuses not on effect, but on sonority. Thus, the artistic stance he adopts allows him to expose the objective beauty resulting from the assumptions of absolute music, which, accompanied by a vivid, existing, and planned sound at a given moment, allows melodies, chords, and rhythms to resound.
