@@ -43,7 +43,7 @@ const imageAlt = entry.data.photoAlt ?? title;
       </span>
 
       <div class="min-w-0">
-        <span class="font-medium">{a.title}</span>
+        <span class>{a.title}</span>
         {a.year && <span> ({a.year})</span>}
         {a.description && <span> — {a.description}</span>}
       </div>
@@ -51,7 +51,7 @@ const imageAlt = entry.data.photoAlt ?? title;
   ))}
 </ul>
       ) : (
-        <p class="text-neutral-400">No awards yet.</p>
+        <p class="text-neutral-200">No awards yet.</p>
       )}
     </section>
   </div>
