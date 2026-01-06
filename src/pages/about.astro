@@ -33,25 +33,27 @@ const imageAlt = entry.data.photoAlt ?? title;
 <section class="space-y-4 sm:space-y-6">
   <H2>Awards</H2>
 
-  {awards.length > 0 ? (
-<ul class="text-neutral-200 space-y-2 list-none pl-0 ml-0 prose prose-invert max-w-none prose-lg xl:prose-xl prose-p:leading-snug prose-li:leading-snug">
-  {awards.map((a: Award) => (
-    <li class="flex items-start gap-2">
-      <span aria-hidden="true" class="shrink-0 leading-snug">
-        {"\u268A"}
-      </span>
+{awards.length > 0 ? (
+  <div class="prose prose-invert max-w-none prose-lg xl:prose-xl prose-p:leading-snug prose-li:leading-snug text-neutral-200">
+    <ul class="list-none p-0 m-0 space-y-2">
+      {awards.map((a: Award) => (
+        <li class="flex items-start gap-2">
+          <span aria-hidden="true" class="shrink-0 leading-snug">
+            {"\u268A"}
+          </span>
 
-      <div class="min-w-0">
-        <span class="font-medium">{a.title}</span>
-        {a.year && <span> ({a.year})</span>}
-        {a.description && <span> — {a.description}</span>}
-      </div>
-    </li>
-  ))}
-</ul>
-  ) : (
-    <p class="text-neutral-200">No awards yet.</p>
-  )}
+          <div class="min-w-0">
+            <span class="font-medium">{a.title}</span>
+            {a.year && <span> ({a.year})</span>}
+            {a.description && <span> — {a.description}</span>}
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+) : (
+  <p class="text-neutral-200">No awards yet.</p>
+)}
 </section>
   </div>
 </InfoLayout>
