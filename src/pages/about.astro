@@ -1,5 +1,6 @@
 ---
 import H1 from "../components/h1.astro";
+import H2 from "../components/h2.astro";
 import InfoLayout from "../layouts/InfoLayout.astro";
 import { getEntry } from "astro:content";
 
@@ -32,7 +33,7 @@ const imageAlt = entry.data.photoAlt ?? title;
     </section>
 
     <section class="space-y-2 text-base sm:text-lg">
-      <h2> Awards </h2>
+      <H2>Awards</H2>
 
       {awards.length > 0 ? (
         <ul class="text-neutral-200 pl-5 space-y-1">
