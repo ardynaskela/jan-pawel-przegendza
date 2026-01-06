@@ -38,7 +38,7 @@ const imageAlt = entry.data.photoAlt ?? title;
         <ul class="text-neutral-200 space-y-2">
           {awards.map((a: Award) => (
             <li>
-              <span class="text-neutral-200 prose prose-invert max-w-none leading-snug prose-base md:prose-lg xl:prose-xl">{a.title}</span>
+              <span class="prose prose-invert max-w-none leading-snug prose-base md:prose-lg xl:prose-xl">{a.title}</span>
               {a.year && <span> ({a.year})</span>}
               {a.description && <span> — {a.description}</span>}
             </li>
