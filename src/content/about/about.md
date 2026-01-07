@@ -8,7 +8,7 @@ awards:
     description: ""
   - title: City of Wroclaw scholarship for young artists
     year: 2021
-    description: optional description
+    description: ""
   - title: " Second prize in the Leoš Janáček GENERACE International Composition
       Competition"
     year: 2021
