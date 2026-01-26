@@ -48,16 +48,6 @@ collections:
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Description (optional)", name: "description", widget: "markdown", required: false }
 
-  - name: "news"
-    label: "News"
-    folder: "src/content/news"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "markdown" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Description (optional)", name: "description", widget: "markdown", required: false }
-
   - name: "photos"
     label: "Photos"
     folder: "src/content/photos"

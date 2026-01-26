@@ -32,15 +32,6 @@ const events = defineCollection({
   }),
 });
 
-const news = defineCollection({
-  type: "content",
-  schema: z.object({
-    title: z.string(),
-    date: z.coerce.date(),
-    description: z.string().optional(),
-  }),
-});
-
 const photos = defineCollection({
   type: "content",
   schema: z.object({
@@ -78,4 +69,4 @@ const about = defineCollection({
   }),
 });
 
-export const collections = { works, events, news, photos, media, about };
+export const collections = { works, events, photos, media, about };
