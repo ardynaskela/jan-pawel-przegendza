@@ -1,26 +1,59 @@
 ---
+import H1 from "../../components/h1.astro";
+import GrainGradientBackground from "../../components/graingradient-background";
+import Navigation from "../../components/navigation";
+import { NAV_ITEMS } from "../../lib/nav";
+import "../../styles/global.css";
 import { getCollection } from "astro:content";
+
 const items = await getCollection("events");
+const title = "Events - Jan Paweł Przegendza";
+const description = "Events by Jan Paweł Przegendza";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Events</title>
+    <title>{title}</title>
   </head>
   <body>
+    <GrainGradientBackground client:load />
     <main>
       <div class="group relative w-full min-h-dvh flex items-center justify-center">
-        <h1>Events</h1>
-        <ul>
-          {items.map((i: any) => <li><a href={`/events/${i.slug}`}>{i.data.date}</a></li>)}
-        </ul>
+        <div class="container mx-auto px-4 py-16 lg:py-32 flex flex-col gap-12 max-w-prose relative z-10">
+          <H1>Events</H1>
+          <ul>
+            {items.map((i: any) => <li><a href={`/events/${i.slug}`}>{i.data.date}</a></li>)}
+          </ul>
+        </div>
       </div>
     </main>
+    <footer class="z-20 fixed bottom-0 left-0 lg:left-12 p-4 lg:p-12 flex flex-col gap-4">
+      <Navigation client:load>
+        {NAV_ITEMS.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))}
+      </Navigation>
+    </footer>
   </body>
 </html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (min-width: 1024px) {
+    footer {
+      left: calc(520px + 3rem) !important;
+    }
+  }
+</style>
