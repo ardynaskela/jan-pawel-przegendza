@@ -1,18 +1,26 @@
 ---
-import RootLayout from "../../layouts/RootLayout.astro";
 import { getCollection } from "astro:content";
-import Footer from "../../components/footer.astro";
 const items = await getCollection("works");
 ---
 
-<RootLayout>
-  <main>
-    <div class="group relative w-full min-h-dvh flex items-center justify-center">
-      <h1>Works</h1>
-      <ul>
-        {items.map((i: any) => <li><a href={`/works/${i.slug}`}>{i.data.title}</a></li>)}
-      </ul>
-    </div>
-  </main>
-  <Footer />
-</RootLayout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Works</title>
+  </head>
+  <body>
+    <main>
+      <div class="group relative w-full min-h-dvh flex items-center justify-center">
+        <h1>Works</h1>
+        <ul>
+          {items.map((i: any) => <li><a href={`/works/${i.slug}`}>{i.data.title}</a></li>)}
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>
