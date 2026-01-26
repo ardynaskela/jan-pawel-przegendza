@@ -1,8 +1,21 @@
 ---
+import RootLayout from "../../layouts/RootLayout.astro";
 import { getCollection } from "astro:content";
+import Footer from "../../components/footer.astro";
 const items = await getCollection("events");
 ---
-<h1>Events</h1>
-<ul>
-  {items.map((i) => <li><a href={`/events/${i.slug}`}>{i.data.date}</a></li>)}
-</ul>
+
+<RootLayout>
+  <main>
+    <div class="group relative w-full min-h-dvh flex items-center justify-center">
+      <h1>Events</h1>
+      <ul>
+        {items.map((i) => <li><a href={`/events/${i.slug}`}>{i.data.date}</a></li>)}
+      </ul>
+    </div>
+  </main>
+  <main class="relative">
+    <slot />
+    <Footer />
+  </main>
+</RootLayout>
