@@ -78,7 +78,6 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string", required: false }
 
-          # ✅ nowość: zdjęcie
           - { label: "Photo", name: "photo", widget: "image", required: false }
           - { label: "Photo alt", name: "photoAlt", widget: "string", required: false }
 

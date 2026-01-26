@@ -7,4 +7,4 @@ description: "Jan Paweł Przegendza - Variations on the wave of the west\nArtur 
 Jan Paweł Przegendza - Variations on the wave of the west
 Artur Wróbel - Conductor
 Sudeten Philharmonic Orchestra
-Sudeten Philharmonic Hall, Wałbrzych
+Sudeten Philharmonic Hall, 
