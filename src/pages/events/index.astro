@@ -10,7 +10,7 @@ const items = await getCollection("events");
     <div class="group relative w-full min-h-dvh flex items-center justify-center">
       <h1>Events</h1>
       <ul>
-        {items.map((i) => <li><a href={`/events/${i.slug}`}>{i.data.date}</a></li>)}
+        {items.map((i: any) => <li><a href={`/events/${i.slug}`}>{i.data.date}</a></li>)}
       </ul>
     </div>
   </main>
