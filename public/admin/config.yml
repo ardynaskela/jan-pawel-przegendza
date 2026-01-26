@@ -45,7 +45,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime", time_format: "HH:mm", format: "YYYY-MM-DDTHH:mm:ss[Z]" }
+      - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Description (optional)", name: "description", widget: "markdown", required: false }
 
   - name: "photos"
