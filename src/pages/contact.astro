@@ -31,7 +31,7 @@ const description = "Get in touch with Jan Paweł Przegendza";
 
   <body class="font-sans min-h-screen bg-neutral-950">
     <main class="relative min-h-screen">
-      <section class="px-4 sm:px-12 pb-24">
+      <section class="pr-4 sm:pr-12 pb-24">
         <div class="min-h-screen grid gap-10 lg:gap-12 grid-cols-[24px_1fr] lg:grid-cols-[minmax(0,520px)_1fr] items-start">
           <!-- ANIMATED BACKGROUND STRIP (LEFT SIDE) -->
           <div class="lg:sticky lg:top-0 h-screen">
@@ -56,7 +56,7 @@ const description = "Get in touch with Jan Paweł Przegendza";
           </div>
 
           <!-- CONTENT (RIGHT SIDE) -->
-          <div class="min-w-0 pt-4 sm:pt-8">
+          <div class="min-w-0 pt-4 sm:pt-8 pl-4 sm:pl-0">
             <H1>Contact</H1>
 
             <div class="mt-6 sm:mt-12 flex flex-col gap-1">
@@ -119,8 +119,8 @@ const description = "Get in touch with Jan Paweł Przegendza";
         </div>
       </section>
       
-      <!-- FOOTER (FIXED AT BOTTOM) -->
-      <footer class="fixed inset-x-0 bottom-0 z-40 pl-4 sm:pl-12 pr-4 py-0 md:py-4 bg-transparent md:bg-neutral-950">
+      <!-- FOOTER (FIXED AT BOTTOM, ONLY IN RIGHT AREA) -->
+      <footer class="fixed bottom-0 z-40 pr-4 py-0 md:py-4 bg-transparent md:bg-neutral-950" style="left: calc(24px + 2.5rem); right: 0;">
         <div class="flex justify-end">
           <!-- Desktop -->
           <div class="hidden md:flex items-center gap-4 flex-wrap justify-end">
@@ -147,5 +147,11 @@ const description = "Get in touch with Jan Paweł Przegendza";
     margin: 0;
     width: 100%;
     height: 100%;
+  }
+  
+  @media (min-width: 1024px) {
+    footer {
+      left: calc(520px + 3rem) !important;
+    }
   }
 </style>
