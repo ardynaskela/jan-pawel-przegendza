@@ -69,3 +69,5 @@ const about = defineCollection({
 });
 
 export const collections = { works, events, photos, media, about };
+
+//comm
