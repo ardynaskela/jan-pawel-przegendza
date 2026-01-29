@@ -4,3 +4,19 @@
 @theme inline {
 	--font-sans: var(--font-geist);
 }
+
+@font-face {
+  font-family: 'Migra';
+  src: url('/fonts/Migra-Extrabold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Migra';
+  src: url('/fonts/Migra-ExtraboldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
