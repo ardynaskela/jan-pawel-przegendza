@@ -78,21 +78,27 @@ collections:
       - { label: "Photo", name: "file", widget: "image" }
       - { label: "Alt text", name: "alt", widget: "string" }
 
-  - name: "about"
-    label: "About"
+  - name: "about-bio"
+    label: "About → Bio"
     files:
-      - file: "src/content/about/about.md"
-        name: "about"
-        label: "About page"
+      - file: "src/content/about/bio.md"
+        name: "bio"
+        label: "Bio"
         fields:
           - { label: "Title", name: "title", widget: "string", required: false }
-
           - { label: "Photo", name: "photo", widget: "image", required: false }
           - { label: "Photo alt", name: "photoAlt", widget: "string", required: false }
-
           - { label: "Bio text", name: "body", widget: "markdown" }
 
-          - label: "Awards"
+  - name: "about-awards"
+    label: "About → Awards"
+    files:
+      - file: "src/content/about/awards.md"
+        name: "awards"
+        label: "Awards"
+        fields:
+          - { label: "Title", name: "title", widget: "string", default: "Awards", required: false }
+          - label: "Awards list"
             name: "awards"
             widget: "list"
             required: false

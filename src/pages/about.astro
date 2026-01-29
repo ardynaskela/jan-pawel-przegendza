@@ -4,41 +4,39 @@ import H2 from "../components/h2.astro";
 import InfoLayout from "../layouts/InfoLayout.astro";
 import { getEntry } from "astro:content";
 
-
 type Award = {
   title: string;
   year?: number;
   description?: string;
 };
 
+// Pobierz bio i awards z osobnych plików
+const bioEntry = await getEntry("about", "bio");
+const awardsEntry = await getEntry("about", "awards");
 
-const entry = await getEntry("about", "about");
-if (!entry) throw new Error("Missing about entry: src/content/about/about.md");
+if (!bioEntry) throw new Error("Missing bio entry: src/content/about/bio.md");
+if (!awardsEntry) throw new Error("Missing awards entry: src/content/about/awards.md");
 
+const { Content: BioContent } = await bioEntry.render();
 
-const { Content } = await entry.render();
+const title = bioEntry.data.title ?? "Jan Paweł Przegendza";
+const awards: Award[] = awardsEntry.data.awards ?? [];
 
-
-const title = entry.data.title ?? "Jan Paweł Przegendza";
-const awards: Award[] = entry.data.awards ?? [];
-
-
-const imageSrc = entry.data.photo ?? "/uploads/jan-przegendza.jpg";
-const imageAlt = entry.data.photoAlt ?? title;
+const imageSrc = bioEntry.data.photo ?? "/uploads/jan-przegendza.jpg";
+const imageAlt = bioEntry.data.photoAlt ?? title;
 ---
-
 
 <InfoLayout imageSrc={imageSrc} imageAlt={imageAlt}>
   <div class="space-y-16">
     <section class="space-y-2 sm:space-y-4">
       <H1>{title}</H1>
       <div class="prose prose-invert max-w-none prose-lg xl:prose-xl prose-p:leading-snug prose-li:leading-snug">
-        <Content />
+        <BioContent />
       </div>
     </section>
 
     <section class="space-y-2 sm:space-y-2">
-      <H2>Awards</H2>
+      <H2>{awardsEntry.data.title ?? "Awards"}</H2>
 
       {awards.length > 0 ? (
         <div class="prose prose-invert max-w-none prose-lg xl:prose-xl prose-p:leading-snug text-neutral-200">
