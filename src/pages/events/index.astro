@@ -94,7 +94,7 @@ const description = "Events by Jan Paweł Przegendza";
       >
         {i.data.title}
       </a>
-      <time class="text-sm text-neutral-400">
+      <time class="text-sm text-neutral-200">
         {new Date(i.data.date).toLocaleDateString("pl-PL", {
           year: "numeric",
           month: "long",
@@ -104,7 +104,7 @@ const description = "Events by Jan Paweł Przegendza";
         })}
       </time>
       {i.data.description && (
-        <p class="text-sm text-neutral-300 max-w-2xl">
+        <p class="text-sm text-neutral-200 max-w-2xl">
           {i.data.description}
         </p>
       )}
