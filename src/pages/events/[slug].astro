@@ -16,6 +16,14 @@ const titleHtml = marked.parse(title);
 const descHtml = description ? marked.parse(description) : "";
 ---
 
-<p>{date}</p>
+<p>
+  {date.toLocaleDateString("pl-PL", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit"
+  })}
+</p>
 <h1 set:html={titleHtml} />
 {description ? <div set:html={descHtml} /> : null}
