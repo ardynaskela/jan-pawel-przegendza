@@ -97,7 +97,6 @@ collections:
         name: "awards"
         label: "Awards"
         fields:
-          - { label: "Title", name: "title", widget: "string", default: "Awards", required: false }
           - label: "Awards list"
             name: "awards"
             widget: "list"
