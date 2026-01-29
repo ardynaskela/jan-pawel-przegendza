@@ -27,7 +27,7 @@ const events = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    date: z.coerce.date(),          // ← ważne
+    date: z.string(),          // ← ważne
     description: z.string().optional(), // ← dopasowane do Decapa
   }),
 });
