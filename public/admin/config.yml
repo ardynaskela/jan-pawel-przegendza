@@ -7,76 +7,10 @@ media_folder: "public/uploads"
 public_folder: "/uploads"
 
 collections:
-  - name: "works"
-    label: "Works"
-    folder: "src/content/works"
+  - name: "test"
+    label: "Test"
+    folder: "src/content/test"
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Subtitle", name: "subtitle", widget: "string" }
-      - { label: "Description", name: "body", widget: "markdown" }
-
-  - name: "events"
-    label: "Events"
-    folder: "src/content/events"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "markdown", required: false }
-
-  - name: "media-videos"
-    label: "Media → Videos"
-    folder: "src/content/media"
-    create: true
-    slug: "{{slug}}"
-    filter: { field: "type", value: "video" }
-    fields:
-      - { label: "Type", name: "type", widget: "hidden", default: "video" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Video URL", name: "fileUrl", widget: "string", required: false }
-      - { label: "Video file", name: "file", widget: "file", required: false }
-      - { label: "Description", name: "alt", widget: "string" }
-
-  - name: "media-photos"
-    label: "Media → Photos"
-    folder: "src/content/media"
-    create: true
-    slug: "{{slug}}"
-    filter: { field: "type", value: "photo" }
-    fields:
-      - { label: "Type", name: "type", widget: "hidden", default: "photo" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Photo", name: "file", widget: "image" }
-      - { label: "Alt text", name: "alt", widget: "string" }
-
-  - name: "about-bio"
-    label: "About → Bio"
-    files:
-      - file: "src/content/about/bio.md"
-        name: "bio"
-        label: "Bio"
-        fields:
-          - { label: "Title", name: "title", widget: "string", required: false }
-          - { label: "Photo", name: "photo", widget: "image", required: false }
-          - { label: "Photo alt", name: "photoAlt", widget: "string", required: false }
-          - { label: "Bio text", name: "body", widget: "markdown" }
-
-  - name: "about-awards"
-    label: "About → Awards"
-    files:
-      - file: "src/content/about/awards.md"
-        name: "awards"
-        label: "Awards"
-        fields:
-          - label: "Awards list"
-            name: "awards"
-            widget: "list"
-            required: false
-            summary: "{{fields.title}}"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Year", name: "year", widget: "number", required: false }
-              - { label: "Description", name: "description", widget: "string", required: false }
