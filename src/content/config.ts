@@ -4,24 +4,20 @@ const works = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    subtitle: z.string(),
+    instrumentation: z.string(),
+    year: z.number().int(),                       
+    duration: z.string(),
+    scores: z.string().url().optional(),
+    commission: z.string().optional(),
+    premiere: z.string(),
+    performances: z.string().optional(),
+    photos: z.array(z.string()).optional(),            
+    video: z.array(z.object({embedUrl: z.string().url().optional(), videoFile: z.string().optional(),})).optional(),
     buttonLink: z.string().url().optional(),
-    videos: z
-      .array(
-        z.object({
-          embedUrl: z.string().url().optional(),
-          videoFile: z.string().optional(),
-        })
-      )
-      .optional(),
-    audio: z
-      .object({
-        embedUrl: z.string().url().optional(),
-        audioFile: z.string().optional(),
-      })
-      .optional(),
-  }),
+    videos: z.array(z.object({embedUrl: z.string().url().optional(), videoFile: z.string().optional(),})).optional(),
+    audio: z.object({embedUrl: z.string().url().optional(), audioFile: z.string().optional(),}).optional(),}),
 });
+
 
 const events = defineCollection({
   type: "content",
