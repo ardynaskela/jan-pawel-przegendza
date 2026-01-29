@@ -92,25 +92,25 @@ const description = "Events by Jan Paweł Przegendza";
                 const descHtml = i.data.description ? marked.parse(i.data.description) : "";
                 
                 return (
-                  <article class="flex flex-col gap-2">
-                    <h2 class="text-base lg:text-xl text-neutral-200 font-medium">
-                      {i.data.title}
-                    </h2>
-                    <time class="text-sm text-neutral-200">
-  {eventDate.toLocaleDateString("en-GB", {
-    year: "numeric",
-    month: "long",
-    day: "numeric"
-  })}, {eventDate.toLocaleTimeString("en-GB", {
-    hour: "2-digit",
-    minute: "2-digit"
-  })}
-</time>
+<article class="flex flex-col gap-2">
+  <h2 class="text-xl lg:text-2xl text-neutral-200 font-medium">
+    {i.data.title}
+  </h2>
+  <time class="text-base lg:text-lg text-neutral-200">
+    {eventDate.toLocaleDateString("en-GB", {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    })}, {eventDate.toLocaleTimeString("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit"
+    })}
+  </time>
+  {descHtml && (
+    <div class="text-base lg:text-lg text-neutral-300 max-w-2xl" set:html={descHtml} />
+  )}
+</article>
 
-                    {descHtml && (
-                      <div class="text-sm text-neutral-300 max-w-2xl" set:html={descHtml} />
-                    )}
-                  </article>
                 );
               })}
             </div>
