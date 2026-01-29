@@ -1,13 +1,9 @@
 ---
 import H1 from "../../components/h1.astro";
-import GrainGradientBackground from "../../components/graingradient-background";
+import RootLayout from "../../layouts/RootLayout.astro";
 import Link from "../../components/link.astro";
 import Navigation from "../../components/navigation";
 import { NAV_ITEMS } from "../../lib/nav";
-import "../../styles/global.css";
-import { Font } from "astro:assets";
-import { ClientRouter } from "astro:transitions";
-import LoadingIndicator from "astro-loading-indicator/component";
 import { getCollection } from "astro:content";
 
 const items = await getCollection("works");
@@ -15,124 +11,25 @@ const title = "Works - Jan Paweł Przegendza";
 const description = "Works by Jan Paweł Przegendza";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
+<RootLayout title={title} description={description}>
+  <section class="px-4 sm:px-12 pb-24">
+    <div class="min-h-screen pt-4 sm:pt-8">
+      <H1>Works</H1>
 
-    <Font cssVariable="--font-geist" preload />
-    <ClientRouter />
-    <LoadingIndicator color="#f4f4f5" height="2px" />
-  </head>
-
-  <body class="font-sans min-h-screen bg-neutral-950">
-    <main class="relative min-h-screen">
-      <!-- ANIMATED BACKGROUND STRIP (FIXED LEFT SIDE) -->
-      <div class="fixed top-0 left-0 w-[24px] lg:w-[520px] h-screen z-0">
-        <div class="relative w-full h-full">
-          <!-- Mobile version with adjusted parameters -->
-          <div class="lg:hidden w-full h-full">
-            <GrainGradientBackground
-              client:only="react"
-              width={1280}
-              height={720}
-              colors={["#ffcca8", "#08062d", "#000000"]}
-              colorBack="#020209"
-              softness={1}
-              intensity={0.69}
-              noise={0.5}
-              shape="ripple"
-              speed={1.48}
-              scale={15}
-              offsetX={2}
-              offsetY={5}
-              style={{ width: "100%", height: "100%" }}
-            />
-          </div>
-          
-          <!-- Desktop version with original parameters -->
-          <div class="hidden lg:block w-full h-full">
-            <GrainGradientBackground
-              client:only="react"
-              width={1280}
-              height={720}
-              colors={["#ffcca8", "#08062d", "#000000"]}
-              colorBack="#020209"
-              softness={1}
-              intensity={0.69}
-              noise={0.5}
-              shape="ripple"
-              speed={1.48}
-              scale={2.36}
-              offsetX={-1}
-              offsetY={-0.82}
-              style={{ width: "100%", height: "100%" }}
-            />
-          </div>
-        </div>
+      <div class="mt-6 sm:mt-12 flex flex-col gap-4">
+        {items.map((i: any) => (
+          <a
+            href={`/works/${i.slug}`}
+            class="w-fit text-base lg:text-xl text-neutral-200 hover:text-neutral-50"
+          >
+            {i.data.title}
+          </a>
+        ))}
       </div>
+    </div>
 
-      <section class="pr-4 sm:pr-12 pb-24">
-        <div class="min-h-screen grid gap-6 lg:gap-12 grid-cols-[24px_1fr] lg:grid-cols-[minmax(0,520px)_1fr] items-start">
-          <!-- SPACER FOR ANIMATION (LEFT SIDE) -->
-          <div></div>
-
-          <!-- CONTENT (RIGHT SIDE) -->
-          <div class="min-w-0 pt-4 sm:pt-8 pl-0 sm:pl-0">
-            <H1>Works</H1>
-
-            <div class="mt-6 sm:mt-12 flex flex-col gap-4">
-              {items.map((i: any) => (
-                <a
-                  href={`/works/${i.slug}`}
-                  class="w-fit text-base lg:text-xl text-neutral-200 hover:text-neutral-50"
-                >
-                  {i.data.title}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      <!-- FOOTER (FIXED AT BOTTOM, ONLY IN RIGHT AREA) -->
-      <footer class="fixed bottom-0 z-40 pr-4 py-0 md:py-4 bg-transparent md:bg-neutral-950" style="left: calc(24px + 2.5rem); right: 0;">
-        <div class="flex justify-end">
-          <!-- Desktop -->
-          <div class="hidden md:flex items-center gap-4 flex-wrap justify-end">
-            {NAV_ITEMS.map((item) => (
-              <Link href={item.href} variant="secondary">
-                {item.label}
-              </Link>
-            ))}
-          </div>
-
-          <!-- Mobile -->
-          <div class="md:hidden">
-            <Navigation client:load items={NAV_ITEMS} />
-          </div>
-        </div>
-      </footer>
-    </main>
-  </body>
-</html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  @media (min-width: 1024px) {
-    footer {
-      left: calc(520px + 3rem) !important;
-    }
-  }
-</style>
+    <!-- FOOTER (FIXED AT BOTTOM) -->
+    <footer class="fixed bottom-0 left-0 right-0 z-40 px-4 sm:px-12 py-0 md:py-4 bg-transparent md:bg-neutral-950">
+      <div class="flex justify-end">
+        <!-- Desktop -->
+        <div cla

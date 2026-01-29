@@ -1,0 +1,82 @@
+---
+import H1 from "../../components/h1.astro";
+import RootLayout from "../../layouts/RootLayout.astro";
+import Link from "../../components/link.astro";
+import Navigation from "../../components/navigation";
+import { NAV_ITEMS } from "../../lib/nav";
+import { getCollection } from "astro:content";
+
+const items = await getCollection("media");
+
+// Separate videos and photos
+const videos = items.filter((item: any) => item.data.type === "video");
+const photos = items.filter((item: any) => item.data.type === "photo");
+
+const title = "Media - Jan Paweł Przegendza";
+const description = "Media by Jan Paweł Przegendza";
+---
+
+<RootLayout title={title} description={description}>
+  <section class="px-4 sm:px-12 pb-24">
+    <div class="min-h-screen pt-4 sm:pt-8">
+      <H1>Media</H1>
+
+      <!-- Videos Section -->
+      {videos.length > 0 && (
+        <div class="mt-6 sm:mt-12">
+          <h2 class="text-2xl lg:text-3xl text-neutral-200 font-medium mb-4">Videos</h2>
+          <div class="flex flex-col gap-4">
+            {videos.map((item: any) => (
+              <a
+                href={`/media/${item.slug}`}
+                class="w-fit text-base lg:text-xl text-neutral-200 hover:text-neutral-50"
+              >
+                {item.data.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Photos Section -->
+      {photos.length > 0 && (
+        <div class="mt-8 sm:mt-12">
+          <h2 class="text-2xl lg:text-3xl text-neutral-200 font-medium mb-4">Photos</h2>
+          <div class="flex flex-col gap-4">
+            {photos.map((item: any) => (
+              <a
+                href={`/media/${item.slug}`}
+                class="w-fit text-base lg:text-xl text-neutral-200 hover:text-neutral-50"
+              >
+                {item.data.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {videos.length === 0 && photos.length === 0 && (
+        <p class="mt-6 text-neutral-300">No media items yet.</p>
+      )}
+    </div>
+
+    <!-- FOOTER (FIXED AT BOTTOM) -->
+    <footer class="fixed bottom-0 left-0 right-0 z-40 px-4 sm:px-12 py-0 md:py-4 bg-transparent md:bg-neutral-950">
+      <div class="flex justify-end">
+        <!-- Desktop -->
+        <div class="hidden md:flex items-center gap-4 flex-wrap justify-end">
+          {NAV_ITEMS.map((item) => (
+            <Link href={item.href} variant="secondary">
+              {item.label}
+            </Link>
+          ))}
+        </div>
+
+        <!-- Mobile -->
+        <div class="md:hidden">
+          <Navigation client:load items={NAV_ITEMS} />
+        </div>
+      </div>
+    </footer>
+  </section>
+</RootLayout>
