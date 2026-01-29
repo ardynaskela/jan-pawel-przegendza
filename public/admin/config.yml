@@ -49,10 +49,9 @@ collections:
           label: "Date", 
           name: "date", 
           widget: "datetime",
-          format: "YYYY-MM-DDTHH:mm:ssZ",
-          date_format: "YYYY-MM-DD",
-          time_format: "HH:mm",
-          picker_utc: false
+          dateFormat: "YYYY-MM-DD",
+          timeFormat: "HH:mm",
+          pickerUtc: false
         }
       - { label: "Description (optional)", name: "description", widget: "markdown", required: false }
 
