@@ -9,6 +9,7 @@ import { Font } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
 import LoadingIndicator from "astro-loading-indicator/component";
 import { getCollection } from "astro:content";
+import { marked } from "marked";
 
 const items = await getCollection("events");
 const title = "Events - Jan Paweł Przegendza";
@@ -85,33 +86,34 @@ const description = "Events by Jan Paweł Przegendza";
           <!-- CONTENT (RIGHT SIDE) -->
           <div class="min-w-0 pt-4 sm:pt-8 pl-0 sm:pl-0">
             <H1>Events</H1>
-<div class="mt-6 sm:mt-12 flex flex-col gap-6">
-  {items.map((i: any) => {
-    const eventDate = typeof i.data.date === 'string' ? new Date(i.data.date) : i.data.date;
-    
-    return (
-      <article class="flex flex-col gap-2">
-        <h2 class="text-base lg:text-xl text-neutral-200 font-medium">
-          {i.data.title}
-        </h2>
-        <time class="text-sm text-neutral-200">
-          {eventDate.toLocaleDateString("pl-PL", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            hour: "2-digit",
-            minute: "2-digit"
-          })}
-        </time>
-        {i.data.description && (
-          <p class="text-sm text-neutral-300 max-w-2xl">
-            {i.data.description}
-          </p>
-        )}
-      </article>
-    );
+            <div class="mt-6 sm:mt-12 flex flex-col gap-6">
+              {items.map((i: any) => {
+                const eventDate = typeof i.data.date === 'string' ? new Date(i.data.date) : i.data.date;
+                const descHtml = i.data.description ? marked.parse(i.data.description) : "";
+                
+                return (
+                  <article class="flex flex-col gap-2">
+                    <h2 class="text-base lg:text-xl text-neutral-200 font-medium">
+                      {i.data.title}
+                    </h2>
+                    <time class="text-sm text-neutral-200">
+  {eventDate.toLocaleDateString("pl-PL", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  })}, {eventDate.toLocaleTimeString("pl-PL", {
+    hour: "2-digit",
+    minute: "2-digit"
   })}
-</div>
+</time>
+
+                    {descHtml && (
+                      <div class="text-sm text-neutral-300 max-w-2xl" set:html={descHtml} />
+                    )}
+                  </article>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>

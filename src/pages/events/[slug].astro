@@ -26,10 +26,12 @@ const descHtml = description ? marked.parse(description) : "";
   {eventDate.toLocaleDateString("pl-PL", {
     year: "numeric",
     month: "long",
-    day: "numeric",
+    day: "numeric"
+  })}, {eventDate.toLocaleTimeString("pl-PL", {
     hour: "2-digit",
     minute: "2-digit"
   })}
 </time>
+
 <h1 set:html={titleHtml} />
 {description ? <div set:html={descHtml} /> : null}
