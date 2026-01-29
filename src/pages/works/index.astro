@@ -28,8 +28,20 @@ const description = "Works by Jan Paweł Przegendza";
       </div>
     </div>
 
-    <!-- FOOTER (FIXED AT BOTTOM) -->
     <footer class="fixed bottom-0 left-0 right-0 z-40 px-4 sm:px-12 py-0 md:py-4 bg-transparent md:bg-neutral-950">
       <div class="flex justify-end">
-        <!-- Desktop -->
-        <div cla
+        <div class="hidden md:flex items-center gap-4 flex-wrap justify-end">
+          {NAV_ITEMS.map((item) => (
+            <Link href={item.href} variant="secondary">
+              {item.label}
+            </Link>
+          ))}
+        </div>
+
+        <div class="md:hidden">
+          <Navigation client:load items={NAV_ITEMS} />
+        </div>
+      </div>
+    </footer>
+  </section>
+</RootLayout>
