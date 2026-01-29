@@ -23,11 +23,11 @@ const descHtml = description ? marked.parse(description) : "";
 ---
 
 <time datetime={eventDate.toISOString()}>
-  {eventDate.toLocaleDateString("pl-PL", {
+  {eventDate.toLocaleDateString("en-GB", {
     year: "numeric",
     month: "long",
     day: "numeric"
-  })}, {eventDate.toLocaleTimeString("pl-PL", {
+  })}, {eventDate.toLocaleTimeString("en-GB", {
     hour: "2-digit",
     minute: "2-digit"
   })}
