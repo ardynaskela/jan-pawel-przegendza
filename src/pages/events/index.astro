@@ -92,13 +92,17 @@ const description = "Events by Jan Paweł Przegendza";
     background-color: rgb(23 23 23);
   }
 
-  .year-filter.active.with-x::after {
-    content: '×';
-    margin-left: 0.25rem;
-    font-size: 1.5rem;
-    line-height: 1;
-    font-weight: 100;
-  }
+.year-filter.active.with-x::after {
+  content: '×';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.35rem;
+  font-size: 1.3rem;       
+  font-weight: 300;        
+  transform: translateY(-1px);
+}
+
 
   .event-item,
   .event-divider {
