@@ -97,14 +97,19 @@ const description = "Events by Jan Paweł Przegendza";
   padding-right: 1.8rem; /* miejsce na X */
 }
 
+.year-filter.active.with-x {
+  position: relative;
+  padding-right: 2.2rem; /* było 1.8rem – więcej miejsca na X */
+}
+
 .year-filter.active.with-x::before,
 .year-filter.active.with-x::after {
   content: "";
   position: absolute;
-  right: 0.7rem;
+  right: 0.5rem;          /* było 0.7rem – X dalej od tekstu */
   top: 50%;
   width: 0.9rem;
-  height: 1px; /* cienki X */
+  height: 1px;
   background-color: #e5e5e5;
   transform-origin: center;
 }
@@ -116,6 +121,7 @@ const description = "Events by Jan Paweł Przegendza";
 .year-filter.active.with-x::after {
   transform: translateY(-50%) rotate(-45deg);
 }
+
 
 
   .event-item,
