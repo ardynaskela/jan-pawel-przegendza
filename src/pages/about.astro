@@ -45,8 +45,7 @@ const imageAlt = entry.data.photoAlt ?? title;
           <ul class="not-prose list-none m-0 p-0 space-y-2">
             {awards.map((a: Award) => (
               <li class="flex items-start gap-2">
-                <span aria-hidden="true" class="shrink-0 leading-snug">•</span>
-
+                <span aria-hidden="true" class="shrink-0 leading-snug text-2xl">•</span>
                 <div class="min-w-0">
                   <span class="font-medium">{a.title}</span>
                   {a.year && <span> ({a.year})</span>}
