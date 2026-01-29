@@ -3,23 +3,151 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex" />
   <title>Content Manager</title>
 </head>
 <body>
-  <!-- Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
-  <!-- Explicit config path -->
   <script>
     CMS.init({
       config: {
-        load_config_file: true
+        backend: {
+          name: 'github',
+          repo: 'ardynaskela/jan-pawel-przegendza',
+          branch: 'master',
+          site_domain: 'jan-przegendza.vercel.app',
+          base_url: 'https://jan-przegendza.vercel.app',
+          auth_endpoint: 'oauth'
+        },
+        media_folder: 'public/uploads',
+        public_folder: '/uploads',
+        collections: [
+          {
+            name: 'works',
+            label: 'Works',
+            folder: 'src/content/works',
+            create: true,
+            slug: '{{slug}}',
+            fields: [
+              { label: 'Title', name: 'title', widget: 'string' },
+              { label: 'Subtitle', name: 'subtitle', widget: 'string' },
+              { label: 'Description', name: 'body', widget: 'markdown' },
+              {
+                label: 'Embedded videos (optional)',
+                name: 'videos',
+                widget: 'list',
+                required: false,
+                fields: [
+                  { label: 'Embed URL (optional)', name: 'embedUrl', widget: 'string', required: false },
+                  { label: 'Self-hosted video file (optional)', name: 'videoFile', widget: 'file', required: false }
+                ]
+              },
+              { label: 'Button link (optional)', name: 'buttonLink', widget: 'string', required: false },
+              {
+                label: 'Audio (optional)',
+                name: 'audio',
+                widget: 'object',
+                required: false,
+                fields: [
+                  { label: 'Embed URL (optional)', name: 'embedUrl', widget: 'string', required: false },
+                  { label: 'Self-hosted audio file (optional)', name: 'audioFile', widget: 'file', required: false }
+                ]
+              }
+            ]
+          },
+          {
+            name: 'events',
+            label: 'Events',
+            folder: 'src/content/events',
+            create: true,
+            slug: '{{slug}}',
+            fields: [
+              { label: 'Title', name: 'title', widget: 'string' },
+              { 
+                label: 'Date (format: YYYY-MM-DDTHH:MM:SS+01:00)', 
+                name: 'date', 
+                widget: 'string',
+                pattern: ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{3}\\+\\d{2}:\\d{2}', 'Must be valid ISO date (e.g., 2026-01-16T19:00:00.000+01:00)']
+              },
+              { label: 'Description (optional)', name: 'description', widget: 'markdown', required: false }
+            ]
+          },
+          {
+            name: 'media-videos',
+            label: 'Media → Videos',
+            folder: 'src/content/media',
+            create: true,
+            slug: '{{slug}}',
+            filter: { field: 'type', value: 'video' },
+            fields: [
+              { label: 'Type', name: 'type', widget: 'hidden', default: 'video' },
+              { label: 'Title', name: 'title', widget: 'string' },
+              { label: 'Video URL (embed or direct)', name: 'fileUrl', widget: 'string', required: false },
+              { label: 'Self-hosted video file', name: 'file', widget: 'file', required: false },
+              { label: 'Description', name: 'alt', widget: 'string' }
+            ]
+          },
+          {
+            name: 'media-photos',
+            label: 'Media → Photos',
+            folder: 'src/content/media',
+            create: true,
+            slug: '{{slug}}',
+            filter: { field: 'type', value: 'photo' },
+            fields: [
+              { label: 'Type', name: 'type', widget: 'hidden', default: 'photo' },
+              { label: 'Title', name: 'title', widget: 'string' },
+              { label: 'Photo', name: 'file', widget: 'image' },
+              { label: 'Alt text', name: 'alt', widget: 'string' }
+            ]
+          },
+          {
+            name: 'about-bio',
+            label: 'About → Bio',
+            files: [
+              {
+                file: 'src/content/about/bio.md',
+                name: 'bio',
+                label: 'Bio',
+                fields: [
+                  { label: 'Title', name: 'title', widget: 'string', required: false },
+                  { label: 'Photo', name: 'photo', widget: 'image', required: false },
+                  { label: 'Photo alt', name: 'photoAlt', widget: 'string', required: false },
+                  { label: 'Bio text', name: 'body', widget: 'markdown' }
+                ]
+              }
+            ]
+          },
+          {
+            name: 'about-awards',
+            label: 'About → Awards',
+            files: [
+              {
+                file: 'src/content/about/awards.md',
+                name: 'awards',
+                label: 'Awards',
+                fields: [
+                  {
+                    label: 'Awards list',
+                    name: 'awards',
+                    widget: 'list',
+                    required: false,
+                    summary: '{{fields.title}}',
+                    fields: [
+                      { label: 'Title', name: 'title', widget: 'string' },
+                      { label: 'Year', name: 'year', widget: 'number', required: false, value_type: 'int' },
+                      { label: 'Description', name: 'description', widget: 'string', required: false }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
     });
   </script>
   
-  <!-- Custom Preview Templates -->
   <script src="./preview.js"></script>
 </body>
 </html>
