@@ -91,13 +91,10 @@ const description = "Events by Jan Paweł Przegendza";
     
     return (
       <article class="flex flex-col gap-2">
-        <a
-          href={`/events/${i.slug}`}
-          class="w-fit text-base lg:text-xl text-neutral-200 hover:text-neutral-50 font-medium"
-        >
+        <h2 class="text-base lg:text-xl text-neutral-200 font-medium">
           {i.data.title}
-        </a>
-        <time class="text-sm text-neutral-400">
+        </h2>
+        <time class="text-sm text-neutral-200">
           {eventDate.toLocaleDateString("pl-PL", {
             year: "numeric",
             month: "long",
