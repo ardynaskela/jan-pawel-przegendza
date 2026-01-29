@@ -4,26 +4,32 @@ import { marked } from "marked";
 
 export async function getStaticPaths() {
   const items = await getCollection("events");
-  return items.map((i) => ({ params: { slug: i.slug } }));
+  return items.map((i: any) => ({ params: { slug: i.slug } }));
 }
 
-const entry = await getEntryBySlug("events", Astro.params.slug);
+const { slug } = Astro.params;
+if (!slug) throw new Error("Slug is required");
+
+const entry = await getEntryBySlug("events", slug);
 if (!entry) throw new Error("Not found");
 
 const { title, date, description } = entry.data;
+
+// Bezpieczne parsowanie daty
+const eventDate = typeof date === 'string' ? new Date(date) : date;
 
 const titleHtml = marked.parse(title);
 const descHtml = description ? marked.parse(description) : "";
 ---
 
-<p>
-  {date.toLocaleDateString("pl-PL", {
+<time datetime={eventDate.toISOString()}>
+  {eventDate.toLocaleDateString("pl-PL", {
     year: "numeric",
     month: "long",
     day: "numeric",
     hour: "2-digit",
     minute: "2-digit"
   })}
-</p>
+</time>
 <h1 set:html={titleHtml} />
 {description ? <div set:html={descHtml} /> : null}
