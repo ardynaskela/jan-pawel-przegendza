@@ -9,7 +9,7 @@ import decapCmsOauth from "astro-decap-cms-oauth";
 
 // https://astro.build/config
 export default defineConfig({
-   output: 'server',
+  output: 'server',
   vite: {
     plugins: [tailwindcss()]
   },
