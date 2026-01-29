@@ -2,15 +2,51 @@ backend:
   name: github
   repo: ardynaskela/jan-pawel-przegendza
   branch: master
+  site_domain: jan-przegendza.vercel.app
+  base_url: https://jan-przegendza.vercel.app
+  auth_endpoint: oauth
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
 collections:
-  - name: "test"
-    label: "Test"
-    folder: "src/content/test"
+  - name: "works"
+    label: "Works"
+    folder: "src/content/works"
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string" }
+      - { label: "Description", name: "body", widget: "markdown" }
+
+      - label: "Embedded videos (optional)"
+        name: "videos"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Embed URL (optional)", name: "embedUrl", widget: "string", required: false }
+          - { label: "Self-hosted video file (optional)", name: "videoFile", widget: "file", required: false }
+
+      - { label: "Button link (optional)", name: "buttonLink", widget: "string", required: false }
+
+      - label: "Audio (optional)"
+        name: "audio"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Embed URL (optional)", name: "embedUrl", widget: "string", required: false }
+          - { label: "Self-hosted audio file (optional)", name: "audioFile", widget: "file", required: false }
+
+  - name: "events"
+    label: "Events"
+    folder: "src/content/events"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { 
+          label: "Date (format: YYYY-MM-DDTHH:MM:SS+01:00)", 
+          name: "date", 
+          widget: "string",
+          pattern
