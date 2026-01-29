@@ -10,6 +10,15 @@
   <!-- Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
+  <!-- Explicit config path -->
+  <script>
+    CMS.init({
+      config: {
+        load_config_file: true
+      }
+    });
+  </script>
+  
   <!-- Custom Preview Templates -->
   <script src="./preview.js"></script>
 </body>
