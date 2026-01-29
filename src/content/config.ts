@@ -27,8 +27,8 @@ const events = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    date: date: z.string().or(z.date()),
-    description: z.string().optional(), // ← dopasowane do Decapa
+    date: z.string().or(z.date()),
+    description: z.string().optional(),
   }),
 });
 
@@ -57,6 +57,7 @@ const about = defineCollection({
     title: z.string().optional(),
     photo: z.string().optional(),
     photoAlt: z.string().optional(),
+    body: z.string().optional(),
     awards: z
       .array(
         z.object({
@@ -69,4 +70,5 @@ const about = defineCollection({
   }),
 });
 
-export const collections = { works, events, photos, media, about };
+export const collections = { works, events, media, about };
+
