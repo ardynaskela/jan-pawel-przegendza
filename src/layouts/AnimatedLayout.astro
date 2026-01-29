@@ -29,7 +29,7 @@ const { title, description } = Astro.props;
   <body class="font-sans min-h-screen bg-neutral-950">
     <main class="relative min-h-screen">
       <!-- ANIMATED BACKGROUND STRIP (FIXED LEFT SIDE) -->
-      <div class="fixed top-0 left-0 w-[24px] lg:w-[580px] h-screen z-0">
+      <div class="fixed top-0 left-0 w-[24px] lg:w-[560px] h-screen z-0">
         <div class="relative w-full h-full">
           <!-- Mobile version -->
           <div class="lg:hidden w-full h-full">
@@ -74,7 +74,7 @@ const { title, description } = Astro.props;
       </div>
 
       <section class="pr-4 sm:pr-12 pb-24">
-        <div class="min-h-screen grid gap-6 lg:gap-12 grid-cols-[24px_1fr] lg:grid-cols-[minmax(0,580px)_1fr] items-start">
+        <div class="min-h-screen grid gap-6 lg:gap-12 grid-cols-[24px_1fr] lg:grid-cols-[minmax(0,560px)_1fr] items-start">
           <!-- SPACER FOR ANIMATION (LEFT SIDE) -->
           <div></div>
 
@@ -117,7 +117,7 @@ const { title, description } = Astro.props;
   
   @media (min-width: 1024px) {
     footer {
-      left: calc(580px + 3rem) !important;
+      left: calc(560px + 3rem) !important;
     }
   }
 </style>
