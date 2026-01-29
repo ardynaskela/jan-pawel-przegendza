@@ -91,7 +91,7 @@ const description = "Events by Jan Paweł Przegendza";
           <!-- CONTENT (RIGHT SIDE) -->
           <div class="min-w-0 pt-4 sm:pt-8 pl-0 sm:pl-0">
             <H1>Events</H1>
-            <div class="mt-6 sm:mt-12 flex flex-col gap-6">
+            <div class="mt-4 sm:mt-6 flex flex-col gap-6">
               {sortedItems.map((i: any, index: number) => {
                 const eventDate = typeof i.data.date === 'string' ? new Date(i.data.date) : i.data.date;
                 const descHtml = i.data.description ? marked.parse(i.data.description) : "";
