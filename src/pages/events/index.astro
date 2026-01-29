@@ -116,11 +116,12 @@ const description = "Events by Jan Paweł Przegendza";
                         <div class="text-base lg:text-lg text-neutral-300 max-w-2xl" set:html={descHtml} />
                       )}
                     </article>
-                    {index < sortedItems.length - 1 && (
-                      <div class="flex justify-center">
-                        <span class="text-neutral-400">•</span>
-                      </div>
-                    )}
+{index < sortedItems.length - 1 && (
+  <div class="flex justify-start">
+    <span class="text-neutral-200 text-2xl">•</span>
+  </div>
+)}
+
                   </>
                 );
               })}
