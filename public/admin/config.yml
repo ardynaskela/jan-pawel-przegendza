@@ -53,25 +53,29 @@ collections:
         }
       - { label: "Description (optional)", name: "description", widget: "markdown", required: false }
 
-  - name: "photos"
-    label: "Photos"
-    folder: "src/content/photos"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Photo", name: "photo", widget: "image" }
-      - { label: "Alt text", name: "alt", widget: "string" }
-
-  - name: "media"
-    label: "Media"
+  - name: "media-videos"
+    label: "Media → Videos"
     folder: "src/content/media"
     create: true
     slug: "{{slug}}"
+    filter: { field: "type", value: "video" }
     fields:
+      - { label: "Type", name: "type", widget: "hidden", default: "video" }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "File URL (if not uploading a file)", name: "fileUrl", widget: "string", required: false }
-      - { label: "Self-hosted file (if no URL)", name: "file", widget: "file", required: false }
+      - { label: "Video URL (embed or direct)", name: "fileUrl", widget: "string", required: false }
+      - { label: "Self-hosted video file", name: "file", widget: "file", required: false }
+      - { label: "Description", name: "alt", widget: "string" }
+
+  - name: "media-photos"
+    label: "Media → Photos"
+    folder: "src/content/media"
+    create: true
+    slug: "{{slug}}"
+    filter: { field: "type", value: "photo" }
+    fields:
+      - { label: "Type", name: "type", widget: "hidden", default: "photo" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Photo", name: "file", widget: "image" }
       - { label: "Alt text", name: "alt", widget: "string" }
 
   - name: "about"
