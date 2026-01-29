@@ -95,7 +95,7 @@ const description = "Events by Jan Paweł Przegendza";
         {i.data.title}
       </a>
       <time class="text-sm text-neutral-200">
-        {new Date(i.data.date).toLocaleDateString("pl-PL", {
+        {i.data.date.toLocaleDateString("pl-PL", {
           year: "numeric",
           month: "long",
           day: "numeric",
